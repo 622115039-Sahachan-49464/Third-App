@@ -25,17 +25,17 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           ListTile(
             onTap: () {},
-            leading: FlutterLogo(),
+            leading: Icon(Icons.access_alarm),
             title: Text(_myData[0]),
           ),
           ListTile(
             onTap: () {},
-            leading: FlutterLogo(),
+            leading: Icon(Icons.phone),
             title: Text(_myData[1]),
           ),
           ListTile(
             onTap: () {},
-            leading: FlutterLogo(),
+            leading: Icon(Icons.add_link),
             title: Text(_myData[2]),
           )
         ],
