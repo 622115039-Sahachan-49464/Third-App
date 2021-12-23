@@ -10,7 +10,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List _myData = ['apple','banana','papaya'];
+  final List _myData = List<String>.generate(100, (index) => "account $index");
   var _title;
   @override
   void initState() {
@@ -26,10 +26,15 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (BuildContext context, int index){
           return Card(
             child: ListTile(
-              leading: const FlutterLogo(),
+              leading: const Icon(Icons.account_circle,color: Colors.purple,),
               title: Text(_myData[index]),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => DetailsPage(
+                      title: _myData[index],
+                      detail: _myData[index],
+                    )
+                ));
               },
             ),
           );
