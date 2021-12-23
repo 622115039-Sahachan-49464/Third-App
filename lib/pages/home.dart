@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:se494_third_app/pages/details.dart';
 
 class MyHomePage extends StatefulWidget {
   final title;
@@ -21,24 +22,19 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(_title),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            onTap: () {},
-            leading: Icon(Icons.access_alarm),
-            title: Text(_myData[0]),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Icon(Icons.phone),
-            title: Text(_myData[1]),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Icon(Icons.add_link),
-            title: Text(_myData[2]),
-          )
-        ],
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index){
+          return Card(
+            child: ListTile(
+              leading: const FlutterLogo(),
+              title: Text(_myData[index]),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+              },
+            ),
+          );
+        },
+        itemCount: _myData.length,
       ),
     );
   }
